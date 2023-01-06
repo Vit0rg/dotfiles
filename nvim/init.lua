@@ -1,0 +1,2 @@
+require("ins0mnia")
+
