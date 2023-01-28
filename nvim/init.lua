@@ -1,2 +1,0 @@
-require("ins0mnia")
-
