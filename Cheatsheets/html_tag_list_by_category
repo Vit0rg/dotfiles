@@ -1,0 +1,119 @@
+#Basic HTML
+tag_doctype.asp|<!DOCTYPE>|Defines the document type
+tag_html.asp|<html>|Defines an HTML document
+tag_title.asp|<title>|Defines a title for the document
+tag_body.asp|<body>|Defines the document's body
+tag_hn.asp|<hn>|Defines HTML headings (h1 to h6)
+tag_p.asp|<p>|Defines a paragraph
+tag_br.asp|<br>|Inserts a single line break
+tag_hr.asp|<hr>|Defines a thematic change in the content
+tag_comment.asp|<!--...-->|Defines a comment
+#Formatting
+tag_abbr.asp|<abbr>|Defines an abbreviation or an acronym
+tag_address.asp|<address>|Defines contact information for the author/owner of a document/article
+tag_b.asp|<b>|Defines bold text
+tag_bdi.asp|<bdi>|Isolates a part of text that might be formatted in a different direction from other text outside it
+tag_bdo.asp|<bdo>|Overrides the current text direction
+tag_blockquote.asp|<blockquote>|Defines a section that is quoted from another source
+tag_cite.asp|<cite>|Defines the title of a work
+tag_code.asp|<code>|Defines a piece of computer code
+tag_del.asp|<del>|Defines text that has been deleted from a document
+tag_dfn.asp|<dfn>|Specifies a term that is going to be defined within the content
+tag_em.asp|<em>|Defines emphasized text
+tag_i.asp|<i>|Defines a part of text in an alternate voice or mood
+tag_ins.asp|<ins>|Defines a text that has been inserted into a document
+tag_kbd.asp|<kbd>|Defines keyboard input
+tag_mark.asp|<mark>|Defines marked/highlighted text
+tag_meter.asp|<meter>|Defines a scalar measurement within a known range (a gauge)
+tag_pre.asp|<pre>|Defines preformatted text
+tag_progress.asp|<progress>|Represents the progress of a task
+tag_q.asp|<q>|Defines a short quotation
+tag_rp.asp|<rp>|Defines what to show in browsers that do not support ruby annotations
+tag_rt.asp|<rt>|Defines an explanation/pronunciation of characters (for East Asian typography)
+tag_ruby.asp|<ruby>|Defines a ruby annotation (for East Asian typography)
+tag_s.asp|<s>|Defines text that is no longer correct
+tag_samp.asp|<samp>|Defines sample output from a computer program
+tag_small.asp|<small>|Defines smaller text
+tag_strong.asp|<strong>|Defines important text
+tag_sub.asp|<sub>|Defines subscripted text
+tag_sup.asp|<sup>|Defines superscripted text
+tag_template.asp|<template>|Defines a container for content that should be hidden when the page loads
+tag_time.asp|<time>|Defines a specific time (or datetime)
+tag_u.asp|<u>|Defines some text that is unarticulated and styled differently from normal text
+tag_var.asp|<var>|Defines a variable
+tag_wbr.asp|<wbr>|Defines a possible line-break
+#Forms and Input
+tag_form.asp|<form>|Defines an HTML form for user input
+tag_input.asp|<input>|Defines an input control
+tag_textarea.asp|<textarea>|Defines a multiline input control (text area)
+tag_button.asp|<button>|Defines a clickable button
+tag_select.asp|<select>|Defines a drop-down list
+tag_optgroup.asp|<optgroup>|Defines a group of related options in a drop-down list
+tag_option.asp|<option>|Defines an option in a drop-down list
+tag_label.asp|<label>|Defines a label for an <input>|element
+tag_fieldset.asp|<fieldset>|Groups related elements in a form
+tag_legend.asp|<legend>|Defines a caption for a <fieldset>|element
+tag_datalist.asp|<datalist>|Specifies a list of pre-defined options for input controls
+tag_output.asp|<output>|Defines the result of a calculation
+#Frames
+tag_iframe.asp|<iframe>|Defines an inline frame
+#Images
+tag_img.asp|<img>|Defines an image
+tag_map.asp|<map>|Defines a client-side image map
+tag_area.asp|<area>|Defines an area inside an image map
+tag_canvas.asp|<canvas>|Used to draw graphics, on the fly, via scripting (usually JavaScript)
+tag_figcaption.asp|<figcaption>|Defines a caption for a <figure>|element
+tag_figure.asp|<figure>|Specifies self-contained content
+tag_picture.asp|<picture>|Defines a container for multiple image resources
+tag_svg.asp|<svg>|Defines a container for SVG graphics
+#Audio / Video
+tag_audio.asp|<audio>|Defines sound content
+tag_source.asp|<source>|Defines multiple media resources for media elements (<video>, <audio>|and <picture>)
+tag_track.asp|<track>|Defines text tracks for media elements (<video>|and <audio>)
+tag_video.asp|<video>|Defines a video or movie
+#Links
+tag_a.asp|<a>|Defines a hyperlink
+tag_link.asp|<link>|Defines the relationship between a document and an external resource (most used to link to style sheets)
+tag_nav.asp|<nav>|Defines navigation links
+#Lists
+tag_ul.asp|<ul>|Defines an unordered list
+tag_ol.asp|<ol>|Defines an ordered list
+tag_li.asp|<li>|Defines a list item
+tag_dl.asp|<dl>|Defines a description list
+tag_dt.asp|<dt>|Defines a term/name in a description list
+tag_dd.asp|<dd>|Defines a description of a term/name in a description list
+#Tables
+tag_table.asp|<table>|Defines a table
+tag_caption.asp|<caption>|Defines a table caption
+tag_th.asp|<th>|Defines a header cell in a table
+tag_tr.asp|<tr>|Defines a row in a table
+tag_td.asp|<td>|Defines a cell in a table
+tag_thead.asp|<thead>|Groups the header content in a table
+tag_tbody.asp|<tbody>|Groups the body content in a table
+tag_tfoot.asp|<tfoot>|Groups the footer content in a table
+tag_col.asp|<col>|Specifies column properties for each column within a <colgroup>|element
+tag_colgroup.asp|<colgroup>|Specifies a group of one or more columns in a table for formatting
+#Styles and Semantics
+tag_style.asp|<style>|Defines style information for a document
+tag_div.asp|<div>|Defines a section in a document
+tag_span.asp|<span>|Defines a section in a document
+tag_header.asp|<header>|Defines a header for a document or section
+tag_footer.asp|<footer>|Defines a footer for a document or section
+tag_main.asp|<main>|Specifies the main content of a document
+tag_section.asp|<section>|Defines a section in a document
+tag_article.asp|<article>|Defines an article
+tag_aside.asp|<aside>|Defines content aside from the page content
+tag_details.asp|<details>|Defines additional details that the user can view or hide
+tag_dialog.asp|<dialog>|Defines a dialog box or window
+tag_summary.asp|<summary>|Defines a visible heading for a <details>|element
+tag_data.asp|<data>|Adds a machine-readable translation of a given content
+#Meta Info
+tag_head.asp|<head>|Defines information about the document
+tag_meta.asp|<meta>|Defines metadata about an HTML document
+tag_base.asp|<base>|Specifies the base URL/target for all relative URLs in a document
+#Programming
+tag_script.asp|<script>|Defines a client-side script
+tag_noscript.asp|<noscript>|Defines an alternate content for users that do not support client-side scripts
+tag_embed.asp|<embed>|Defines a container for an external (non-HTML) application
+tag_object.asp|<object>|Defines an embedded object
+tag_param.asp|<param>|Defines a parameter for an object
