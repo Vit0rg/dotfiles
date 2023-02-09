@@ -1,0 +1,79 @@
+#Window Event Attributes
+ev_onafterprint.asp|onafterprint|Script to be run after the document is printed
+ev_onbeforeprint.asp|onbeforeprint|Script to be run before the document is printed
+ev_onbeforeunload.asp|onbeforeunload|Script to be run when the document is about to be unloaded
+ev_onerror.asp|onerror|Script to be run when an error occurs
+ev_onhashchange.asp|onhashchange|Script to be run when there has been changes to the anchor part of the a URL
+ev_onload.asp|onload|Fires after the page is finished loading
+|onmessage|Script to be run when the message is triggered
+ev_onoffline.asp|onoffline|Script to be run when the browser starts to work offline
+ev_ononline.asp|ononline|Script to be run when the browser starts to work online
+|onpagehide|Script to be run when a user navigates away from a page
+ev_onpageshow.asp|onpageshow|Script to be run when a user navigates to a page
+|onpopstate|Script to be run when the window's history changes
+ev_onresize.asp|onresize|Fires when the browser window is resized
+|onstorage|Script to be run when a Web Storage area is updated
+ev_onunload.asp|onunload|Fires once a page has unloaded (or the browser window has been closed)
+#Form Events
+ev_onblur.asp|onblur|Fires the moment that the element loses focus
+ev_onchange.asp|onchange|Fires the moment when the value of the element is changed
+ev_oncontextmenu.asp|oncontextmenu|Script to be run when a context menu is triggered
+ev_onfocus.asp|onfocus|Fires the moment when the element gets focus
+ev_oninput.asp|oninput|Script to be run when an element gets user input
+ev_oninvalid.asp|oninvalid|Script to be run when an element is invalid
+ev_onreset.asp|onreset|Fires when the Reset button in a form is clicked
+ev_onsearch.asp|onsearch|Fires when the user writes something in a search field (for <input="search">)
+ev_onselect.asp|onselect|Fires after some text has been selected in an element
+ev_onsubmit.asp|onsubmit|Fires when a form is submitted
+#Keyboard Events
+ev_onkeydown.asp|onkeydown|Fires when a user is pressing a key
+ev_onkeypress.asp|onkeypress|Fires when a user presses a key
+ev_onkeyup.asp|onkeyup|Fires when a user releases a key
+#Mouse Events
+ev_onclick.asp|onclick|Fires on a mouse click on the element
+ev_ondblclick.asp|ondblclick|Fires on a mouse double-click on the element
+ev_onmousedown.asp|onmousedown|Fires when a mouse button is pressed down on an element
+ev_onmousemove.asp|onmousemove|Fires when the mouse pointer is moving while it is over an element
+ev_onmouseout.asp|onmouseout|Fires when the mouse pointer moves out of an element
+ev_onmouseover.asp|onmouseover|Fires when the mouse pointer moves over an element
+ev_onmouseup.asp|onmouseup|Fires when a mouse button is released over an element
+ev_onwheel.asp|onwheel|Fires when the mouse wheel rolls up or down over an element
+#Drag Events
+ev_ondrag.asp|ondrag|Script to be run when an element is dragged
+ev_ondragend.asp|ondragend|Script to be run at the end of a drag operation
+ev_ondragenter.asp|ondragenter|Script to be run when an element has been dragged to a valid drop target
+ev_ondragleave.asp|ondragleave|Script to be run when an element leaves a valid drop target
+ev_ondragover.asp|ondragover|Script to be run when an element is being dragged over a valid drop target
+ev_ondragstart.asp|ondragstart|Script to be run at the start of a drag operation
+ev_ondrop.asp|ondrop|Script to be run when dragged element is being dropped
+ev_onscroll.asp|onscroll|Script to be run when an element's scrollbar is being scrolled
+#Clipboard Events
+ev_oncopy.asp|oncopy|Fires when the user copies the content of an element
+ev_oncut.asp|oncut|Fires when the user cuts the content of an element
+ev_onpaste.asp|onpaste|Fires when the user pastes some content in an element
+#Media Events
+|onabort|Script to be run on abort
+|oncanplay|Script to be run when a file is ready to start playing (when it has buffered enough to begin)
+|oncanplaythrough|Script to be run when a file can be played all the way to the end without pausing for buffering
+|oncuechange|Script to be run when the cue changes in a <track> element
+|ondurationchange|Script to be run when the length of the media changes
+|onemptied|Script to be run when something bad happens and the file is suddenly unavailable (like unexpectedly disconnects)
+|onended|Script to be run when the media has reach the end (a useful event for messages like "thanks for listening")
+|onerror|Script to be run when an error occurs when the file is being loaded
+|onloadeddata|Script to be run when media data is loaded
+|onloadedmetadata|Script to be run when meta data (like dimensions and duration) are loaded
+|onloadstart|Script to be run just as the file begins to load before anything is actually loaded
+|onpause|Script to be run when the media is paused either by the user or programmatically
+|onplay|Script to be run when the media is ready to start playing
+|onplaying|Script to be run when the media actually has started playing
+|onprogress|Script to be run when the browser is in the process of getting the media data
+|onratechange|Script to be run each time the playback rate changes (like when a user switches to a slow motion or fast forward mode)
+|onseeked|Script to be run when the seeking attribute is set to false indicating that seeking has ended
+|onseeking|Script to be run when the seeking attribute is set to true indicating that seeking is active
+|onstalled|Script to be run when the browser is unable to fetch the media data for whatever reason
+|onsuspend|Script to be run when fetching the media data is stopped before it is completely loaded for whatever reason
+|ontimeupdate|Script to be run when the playing position has changed (like when the user fast forwards to a different point in the media)
+|onvolumechange|Script to be run each time the volume is changed which (includes setting the volume to "mute")
+|onwaiting|Script to be run when the media has paused but is expected to resume (like when the media pauses to buffer more data)
+#Misc Events
+ev_ontoggle.asp|ontoggle|Fires when the user opens or closes the <details> element
