@@ -22,7 +22,7 @@ ev_onfocus.asp|onfocus|Fires the moment when the element gets focus
 ev_oninput.asp|oninput|Script to be run when an element gets user input
 ev_oninvalid.asp|oninvalid|Script to be run when an element is invalid
 ev_onreset.asp|onreset|Fires when the Reset button in a form is clicked
-ev_onsearch.asp|onsearch|Fires when the user writes something in a search field (for <input="search">)
+ev_onsearch.asp|onsearch|Fires when the user writes something in a search field (for input="search")
 ev_onselect.asp|onselect|Fires after some text has been selected in an element
 ev_onsubmit.asp|onsubmit|Fires when a form is submitted
 #Keyboard Events
@@ -55,7 +55,7 @@ ev_onpaste.asp|onpaste|Fires when the user pastes some content in an element
 |onabort|Script to be run on abort
 |oncanplay|Script to be run when a file is ready to start playing (when it has buffered enough to begin)
 |oncanplaythrough|Script to be run when a file can be played all the way to the end without pausing for buffering
-|oncuechange|Script to be run when the cue changes in a <track> element
+|oncuechange|Script to be run when the cue changes in a track element
 |ondurationchange|Script to be run when the length of the media changes
 |onemptied|Script to be run when something bad happens and the file is suddenly unavailable (like unexpectedly disconnects)
 |onended|Script to be run when the media has reach the end (a useful event for messages like "thanks for listening")
@@ -76,4 +76,4 @@ ev_onpaste.asp|onpaste|Fires when the user pastes some content in an element
 |onvolumechange|Script to be run each time the volume is changed which (includes setting the volume to "mute")
 |onwaiting|Script to be run when the media has paused but is expected to resume (like when the media pauses to buffer more data)
 #Misc Events
-ev_ontoggle.asp|ontoggle|Fires when the user opens or closes the <details> element
+ev_ontoggle.asp|ontoggle|Fires when the user opens or closes the details element
