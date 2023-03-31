@@ -59,10 +59,10 @@ fi
 
 if [ "$color_prompt" = yes ]; then
     # PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-    PS1="\[\033[38;5;190m\][\$\[\033[38;5;28m\] \A] \[\033[0m\]\[\033[38;5;1m\]\u\[\033[0m\] [\w]\[\033[0m\] \[\033[38;5;15m\]"
+    PS1="\[\033[38;5;190m\][\$\[\033[38;5;28m\] \A] \[\033[0m\]\[\033[38;5;1m\]\u\[\033[0m\] [\w]\[\033[0m\] \[\033[38;5;4m\]"
 else
     # PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-    PS1="\[\033[38;5;190m\][\$\[\033[38;5;28m\] \A] \[\033[0m\]\[\033[38;5;1m\]\u@\h\[\033[0m\] [\w]\[\033[0m\] \[\033[38;5;15m\]"
+    PS1="\[\033[38;5;190m\][\$\[\033[38;5;28m\] \A] \[\033[0m\]\[\033[38;5;1m\]\u@\h\[\033[0m\] [\w]\[\033[0m\] \[\033[38;5;4m\]"
 fi
 unset color_prompt force_color_prompt
 
@@ -86,11 +86,10 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -115,14 +114,38 @@ fi
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+. "$HOME"/.cargo/env
+
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
+# asdf
+. "$HOME"/.asdf/asdf.sh
+. "$HOME"/.asdf/completions/asdf.bash
+
+# XDG_CONFIG_HOME:
+export XDG_CONFIG_HOME="$HOME/.config"
 
 # Initial configs:
-source ~/.bash_aliases
 export PATH=$HOME/.local/bin:$PATH
 
 # Set colorscheme with pywal
-(cat "$HOME/.cache/wal/sequences" &)
 wal -qnR
-
 neofetch
-get_random_user_agent
+
+# Set user agent if custom getter script is installed
+if [[ -e "$HOME"/local/bin/get_random_user_agent ]]; then
+  test -f /tmp/user_agent || get_random_user_agent
+fi
+
+# Start set_random_wallpaper as job:
+if [[ -z "$(pgrep -la "set_random_wall")" ]]; then
+  setsid -f set_random_wallpaper
+fi
+
+# Set keyboard:
+setxkbmap -model pc105 -layout br -variant abnt2
+
+# Warning:
+echo -en "You need to rethink and discover what you REALLY need to do.\n"
+
