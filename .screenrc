@@ -25,9 +25,30 @@
   bind O login off
   bind } history
 
+# Flow through splits
+  bindkey "^[[1;5D" focus prev
+  bindkey "^[[1;5C" focus next
+
+# Make resizing regions easier
+  bind = resize =
+  bindkey "\033Ok" resize +1
+  bindkey "\033Om" resize -1
+
 # ------------------------------------------------------------------------------
 # TERMINAL SETTINGS
 # ------------------------------------------------------------------------------
+
+# Allow bold colors - necessary for some reason
+  attrcolor b ".I"
+
+# Tell screen how to set colors. AB = background, AF=foreground
+  # termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+
+# Erase background with current bg color
+  defbce "on"
+
+# Enable 256 color term
+  # term xterm-256color
 
 # Don't block command output if the terminal stops responding
 # (like if the ssh connection times out for example).
@@ -49,13 +70,19 @@
 # use this for the hard status string
   hardstatus string "%h%? users: %u%?"
 
-# the following two lines give a two-line status, with the current window highlighted
+# the following two lines give a two-line status,
+# with the current window highlighted
   hardstatus alwayslastline
   hardstatus string "%{= kG}[%{G}%H%? %1`%?%{G}][%= %{= kw}%-w%{+b ky} %n*%t%?(%u)%? %{-}%+w %=%{g}][%{w}%m/%d %{R}%C%A%{g}]"
 # %{= kG}
 # [%{G}%H%? %1`%?%{g}]
 # [%= %{= kw}%-w%{+b yk} %n*%t%?(%u)%? %{-}%+w %=%{g}]
 # [%{B}%m/%d %{W}%C%A%{g}]
+
+# Hide hardstatus: ctrl-a f
+  bind f eval "hardstatus ignore"
+# # Show hardstatus: ctrl-a F
+  bind F eval "hardstatus alwayslastline"
 
 # ------------------------------------------------------------------------------
 # STARTUP SCREENS
@@ -64,9 +91,10 @@
 # default windows
   screen -t Main   1 bash
   screen -t Aux    2 bash
-  screen -t Music  3 bash
+  screen -t Mus    3 bash
   screen -t Doc    4 bash
-  bind c screen 1 # window numbering starts at 1 not 0
+  screen -t Vis    5 bash
+# bind c screen 1 # window numbering starts at 1 not 0
   bind 0 select 10
   select 1
 
@@ -79,31 +107,49 @@
 
 # Main window fully zoomed
   layout autosave on
+
+# 1
   layout new one
   select 1
 
-# Main window at h 90%, Music window at h 5%
+# 2
   layout new two
-  select 1
+  select 3
   split
   focus down
   resize -v 5
-  select 3
+  select 5
   focus up
 
-# Main window at v 50%, Aux window at v 50%
+# 3
   layout new three
   select 1
   split -v
   focus right
-  resize -h 47%
-  select 3
+  resize -h 46%
+  select 2
   focus left
 
-# Attach and layer shortcuts:
+# 4
+  layout new four
   layout attach one
+  select 1
   layout select one
-  bindkey "LA1" layout select one
-  bindkey "LA2" layout select two
-  bindkey "LA3" layout select three
+  split -v
+  focus right
+  resize -h 46%
+  select 2
+  split
+  focus down
+  resize -v 20%
+  select 5
+  focus left
+
+# switch layouts with Ctrl+F3 (prev layout) and Ctrl+F4 (next)
+  bindkey "^[[1;5R" layout prev
+  bindkey "^[[1;5S" layout next
+
+
+# define minimum size when focus split
+  focusminsize 50% 25%
 # ------------------------------------------------------------------------------
