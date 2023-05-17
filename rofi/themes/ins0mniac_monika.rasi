@@ -1,0 +1,237 @@
+/*******************************************************************************
+ * ROFI Color theme
+ * User: Ins0mnia
+ * Copyright: Ins0mnia
+ *******************************************************************************/
+
+*
+{
+  /*Background*/
+    background:                  transparent;
+    background-color:            hsl(200, 5%, 0%);
+
+  /*normal*/
+    normal-background:           hsl(220, 20%, 10%);
+    alternate-normal-background: hsl(220, 20%, 5%);
+    selected-normal-background:  hsl(220, 10%, 15%);
+
+  /*active*/
+    active-background:           hsl(125, 70%, 15%);
+    alternate-active-background: hsl(125, 70%, 25%);
+    selected-active-background:  hsl(125, 70%, 50%);
+
+  /*urgent*/
+    urgent-background:           hsl(50, 100%, 40%);
+    alternate-urgent-background: hsl(50, 100%, 50%);
+    selected-urgent-background:  hsl(65, 100%, 50%);
+
+  /*Foreground*/
+    foreground:                  hsl(0, 0%, 80%);
+    foreground-color:            hsl( 0, 0%, 100%);
+
+  /*normal*/
+    normal-foreground:           hsl(340, 30%, 40%);
+    alternate-normal-foreground: hsl(340, 35%, 50%);
+    selected-normal-foreground:  hsl(130, 75%, 55%);
+    normal-border:               hsl(170, 50%, 50%);
+
+  /*active*/
+    active-foreground:           hsl(125, 70%, 60%);
+    alternate-active-foreground: hsl(125, 70%, 40%);
+    selected-active-foreground:  hsl(125, 50%, 5%);
+
+  /*urgent*/
+    urgent-foreground:           hsl(220, 100%, 10%);
+    alternate-urgent-foreground: hsl(220, 100%, 20%);
+    selected-urgent-foreground:  hsl(0, 50%, 5%);
+
+
+  /*General*/
+    spacing: 0;
+    border-color:   @normal-foreground;
+    separatorcolor: transparent;
+    font: "Annie Use Your Telescope Bold 15";
+}
+
+#window
+{
+  background-color: @background;
+  // fullscreen:       true;
+  width:            70%;
+  padding:          1;
+  location:         center;
+  anchor:           center;
+  border-radius:    1%;
+}
+
+#mainbox
+{
+  background-color: @background;
+  border:  0;
+  padding: 0;
+}
+
+#scrollbar
+{
+  /*No scrollbar*/
+  width:        0;
+  border:       0;
+  handle-width: 0;
+  padding:      0;
+}
+
+//-----------------------
+//| inputbar            |
+//| prompt | entry | ci |
+//----------------------|
+
+#inputbar
+{
+  spacing:       0;
+  padding:       1%;
+  margin:        0 0 0.5% 0;
+  text-color:    @selected-normal-foreground;
+  children:      [ prompt,textbox-prompt-colon,entry,case-indicator ];
+  border:        2px;
+  border-color:  @alternate-active-background;
+  border-radius: 1.5em;
+}
+
+#prompt
+{
+  margin: 0 0 0 1%;
+  text-color: @selected-normal-foreground;
+}
+
+#textbox-prompt-colon
+{
+  expand:     false;
+  str:        "||";
+  margin:     0 1%;
+  text-color: @alternate-normal-foreground;
+}
+
+#entry
+{
+  spacing:  0;
+  text-color: @selected-normal-foreground;
+}
+
+#case-indicator
+{
+  spacing:    0;
+  text-color: @urgent-foreground;
+}
+
+//---------------------|
+//| message            |
+//| [textbox]          |
+//---------------------|
+
+#message
+{
+  border:       0.5% solid;
+  border-color: @background;
+  padding:      1% ;
+}
+
+#textbox
+{
+  text-color: @foreground;
+}
+
+#listview
+{
+  background-color: transparent;
+  fixed-height:     false;
+  lines:            6;
+  dynamic:          true;
+  cycle:            true;
+  border-color:     @separatorcolor;
+  spacing:          0.5%;
+  scrollbar:        false;
+  padding:          0;
+}
+
+#element
+{
+  spacing: 2%;
+  border:  0;
+  padding: 5px 1%;
+}
+
+#element.normal.normal
+{
+  background-color: @normal-background;
+  text-color:       @normal-foreground;
+}
+
+#element.normal.urgent
+{
+  background-color: @urgent-background;
+  text-color:       @urgent-foreground;
+}
+
+#element.normal.active
+{
+  background-color: @active-background;
+  text-color:       @active-foreground;
+}
+
+#element.selected
+{
+  border:        1.5px solid;
+  font:          bold;
+  border-radius: 2em;
+}
+
+#element.selected.normal
+{
+  background-color: @selected-normal-background;
+  text-color:       @selected-normal-foreground;
+  border-color:     @normal-border;
+}
+
+#element.selected.urgent
+{
+  background-color: @selected-urgent-background;
+  text-color:       @selected-urgent-foreground;
+  border-color:     @selected-urgent-foreground;
+}
+
+#element.selected.active
+{
+  background-color: @selected-active-background;
+  text-color:       @selected-active-foreground;
+  border-color:     @selected-active-foreground;
+}
+
+#element.alternate.normal
+{
+  background-color: @alternate-normal-background;
+  text-color:       @alternate-normal-foreground;
+}
+
+#element.alternate.urgent
+{
+  background-color: @alternate-urgent-background;
+  text-color:       @alternate-urgent-foreground;
+}
+
+#element.alternate.active
+{
+  background-color: @alternate-active-background;
+  text-color:       @alternate-active-foreground;
+}
+
+#mode-switcher
+{
+  border:       2px solid 0px 0px ;
+  border-color: @separatorcolor;
+}
+
+#button.selected
+{
+  background-color: @selected-normal-background;
+  text-color:       @selected-normal-foreground;
+}

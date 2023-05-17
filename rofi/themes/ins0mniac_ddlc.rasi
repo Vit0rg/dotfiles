@@ -1,0 +1,259 @@
+/*******************************************************************************
+ * ROFI Color theme
+ * User: Ins0mnia
+ * Copyright: Ins0mnia
+ *******************************************************************************/
+
+*
+{
+  /*Background*/
+    background:                  transparent;
+    background-color:            hsl(200, 5%, 0%);
+
+  /*normal*/
+    normal-background:           hsl(318, 100%, 85%);
+    alternate-normal-background: hsl(318, 100%, 80%);
+    selected-normal-background:  hsl(318, 85%, 95%);
+
+  /*active*/
+    active-background:           hsl(125, 100%, 85%);
+    alternate-active-background: hsl(125, 100%, 80%);
+    selected-active-background:  hsl(125, 85%, 95%);
+
+  /*urgent*/
+    urgent-background:           hsl(50, 100%, 85%);
+    alternate-urgent-background: hsl(50, 100%, 80%);
+    selected-urgent-background:  hsl(50, 85%, 95%);
+
+  /*foreground*/
+    foreground-color:            hsl(0, 0%, 0%);
+    alternate-foreground-color:  hsl( 0, 0%, 10%);
+
+  /*normal*/
+    normal-foreground:           @foreground;
+    alternate-normal-foreground: @alternate-foreground-color;
+    selected-normal-foreground:  hsl(345, 40%, 33%);
+    normal-border:               hsl(327, 100%, 75%);
+    alternate-normal-border:     hsl(327, 100%, 70%);
+    selected-normal-border:      hsl(327, 100%, 80%);
+
+  /*active*/
+    active-foreground:           @foreground-color;
+    alternate-active-foreground: @alternate-foreground-color;
+    selected-active-foreground:  hsl(125, 40%, 33%);
+    active-border:               hsl(125, 100%, 75%);
+    alternate-active-border:     hsl(125, 100%, 70%);
+    selected-active-border:      hsl(125, 100%, 80%);
+
+  /*urgent*/
+    urgent-foreground:           @foreground-color;
+    alternate-urgent-foreground: @alternate-foreground-color;
+    selected-urgent-foreground:  hsl(50, 40%, 33%);
+    urgent-border:               hsl(50, 100%, 75%);
+    alternate-urgent-border:     hsl(50, 100%, 70%);
+    selected-urgent-border:      hsl(50, 100%, 80%);
+
+  /*General*/
+    spacing: 0;
+    border-color:   @normal-foreground;
+    separatorcolor: transparent;
+    font: "Annie Use Your Telescope Bold 15";
+}
+
+#window
+{
+  background-color: @background;
+  // fullscreen:       true;
+  width:            70%;
+  padding:          1;
+  location:         center;
+  anchor:           center;
+}
+
+#mainbox
+{
+  background-color: @background;
+  border:  0;
+  padding: 0;
+}
+
+#scrollbar
+{
+  /*No scrollbar*/
+  width:        0;
+  border:       0;
+  handle-width: 0;
+  padding:      0;
+}
+
+//-----------------------
+//| inputbar            |
+//| prompt | entry | ci |
+//----------------------|
+
+#inputbar
+{
+  spacing:       0;
+  padding:       2%;
+  margin:        0 0 0.5% 0;
+  children:      [ prompt,textbox-prompt-colon,entry,case-indicator ];
+  border:        2px;
+  border-color:  @selected-normal-background;
+  background-color: @normal-background;
+}
+
+#prompt
+{
+  margin: 0 0 0 1%;
+  background-color: inherit;
+  text-color: @selected-normal-foreground;
+}
+
+#textbox-prompt-colon
+{
+  expand:     false;
+  background-color: inherit;
+  str:        "||";
+  margin:     0 1%;
+  text-color: @selected-normal-foreground;
+}
+
+#entry
+{
+  spacing:  0;
+  background-color: inherit;
+  text-color:       @normal-foreground;
+
+}
+
+#case-indicator
+{
+  spacing:    0;
+  background-color: inherit;
+  text-color: @urgent-foreground;
+}
+
+//---------------------|
+//| message            |
+//| [textbox]          |
+//---------------------|
+
+#message
+{
+  border:       2px solid;
+  background-color: @selected-normal-border;
+  transparency: "/home/ins0mnia/Pictures/textbox_2.png";
+  border-color:  @selected-normal-foreground;
+  padding:      1%;
+  border-radius: 1em;
+}
+
+#textbox
+{
+  background-color: inherit;
+  border-color: inherit;
+  text-color: @normal-foreground;
+}
+
+#listview
+{
+  background-color: transparent;
+  fixed-height:     false;
+  lines:            4;
+  dynamic:          true;
+  cycle:            true;
+  border-color:     @separatorcolor;
+  spacing:          2%;
+  scrollbar:        false;
+  margin:           1% 0 0 0;
+  padding:          0;
+}
+
+#element
+{
+  spacing:      2%;
+  border:       4.5px solid;
+  padding:      5px 1%;
+  border-color: @normal-border;
+}
+
+#element.normal.normal
+{
+  background-color: @normal-background;
+  text-color:       @normal-foreground;
+  border-color:     @normal-border;
+}
+
+#element.normal.urgent
+{
+  background-color: @urgent-background;
+  text-color:       @urgent-foreground;
+  border-color:     @urgent-border;
+}
+
+#element.normal.active
+{
+  background-color: @active-background;
+  text-color:       @active-foreground;
+  border-color:     @active-border;
+}
+
+#element.selected
+{
+  font:          bold;
+  border-radius: 0;
+}
+
+#element.selected.normal
+{
+  background-color: @selected-normal-background;
+  text-color:       @selected-normal-foreground;
+  border-color:     @alternate-normal-border;
+}
+
+#element.selected.urgent
+{
+  background-color: @selected-urgent-background;
+  text-color:       @selected-urgent-foreground;
+  border-color:     @selected-urgent-border;
+}
+
+#element.selected.active
+{
+  background-color: @selected-active-background;
+  text-color:       @selected-active-foreground;
+  border-color:     @selected-active-border;
+}
+
+#element.alternate.normal
+{
+  background-color: @alternate-normal-background;
+  text-color:       @alternate-normal-foreground;
+  border-color:     @alternate-normal-border;
+}
+
+#element.alternate.urgent
+{
+  background-color: @alternate-urgent-background;
+  text-color:       @alternate-urgent-foreground;
+  border-color:     @alternate-urgent-border;
+}
+
+#element.alternate.active
+{
+  background-color: @alternate-active-background;
+  text-color:       @alternate-active-foreground;
+  border-color:     @alternate-active-border;
+}
+
+#mode-switcher
+{
+  border:       2px solid 0px 0px ;
+  border-color: @separatorcolor;
+}
+
+#button.selected
+{
+  background-color: @selected-normal-background;
+  text-color:       @selected-normal-foreground;
+}
