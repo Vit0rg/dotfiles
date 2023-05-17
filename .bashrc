@@ -8,14 +8,17 @@ case $- in
       *) return;;
 esac
 
+# Vi mode
+# set -o vi
+
 # Disable ctrl-s and ctrl-q
 stty -ixon
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
-HISTSIZE=20000
-HISTFILESIZE=20000
+HISTSIZE=90000
+HISTFILESIZE=90000
 
 # append to the history file, don't overwrite it
 shopt -s histappend
@@ -38,7 +41,7 @@ fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-color|*-256color) color_prompt=yes;;
+    xterm-color|*-256color-bce) color_prompt=yes;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -59,10 +62,10 @@ fi
 
 if [ "$color_prompt" = yes ]; then
     # PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-    PS1="\[\033[38;5;190m\][\$\[\033[38;5;28m\] \A] \[\033[0m\]\[\033[38;5;1m\]\u\[\033[0m\] [\w]\[\033[0m\] \[\033[38;5;4m\]"
+    PS1="\[\033[38;5;190m\][\$\[\033[38;5;28m\] \A] \[\033[0m\]\[\033[38;5;1m\]\u\[\033[0m\] [\w]\[\033[0m\] \[\033[38;5;117m\]"
 else
     # PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-    PS1="\[\033[38;5;190m\][\$\[\033[38;5;28m\] \A] \[\033[0m\]\[\033[38;5;1m\]\u@\h\[\033[0m\] [\w]\[\033[0m\] \[\033[38;5;4m\]"
+    PS1="\[\033[38;5;190m\][\$\[\033[38;5;28m\] \A] \[\033[0m\]\[\033[38;5;1m\]\u@\h\[\033[0m\] [\w]\[\033[0m\] \[\033[38;5;117m\]"
 fi
 unset color_prompt force_color_prompt
 
@@ -118,6 +121,7 @@ export NVM_DIR="$HOME/.nvm"
 
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+export EDITOR=/usr/local/bin/vim
 
 # asdf
 . "$HOME"/.asdf/asdf.sh
@@ -131,11 +135,12 @@ export PATH=$HOME/.local/bin:$PATH
 
 # Set colorscheme with pywal
 wal -qnR
-neofetch
+# neofetch
 
 # Set user agent if custom getter script is installed
-if [[ -e "$HOME"/local/bin/get_random_user_agent ]]; then
-  test -f /tmp/user_agent || get_random_user_agent
+if [[ -e "$HOME"/.local/bin/get_random_user_agent ]]; then
+  user_agent="$(get_random_user_agent)"
+  export user_agent
 fi
 
 # Start set_random_wallpaper as job:
