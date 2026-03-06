@@ -62,10 +62,10 @@ fi
 
 if [ "$color_prompt" = yes ]; then
     # PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-    PS1="\[\033[38;5;190m\][\$\[\033[38;5;28m\] \A] \[\033[0m\]\[\033[38;5;1m\]\u\[\033[0m\] [\w]\[\033[0m\] \[\033[38;5;117m\]"
+    PS1="\[\033[38;5;190m\][\$\[\033[38;5;28m\] \A] \[\033[0m\]\[\033[38;5;1m\]\u\[\033[0m\]\n[\w]\[\033[0m\] \[\033[38;5;255m\]\n> "
 else
     # PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-    PS1="\[\033[38;5;190m\][\$\[\033[38;5;28m\] \A] \[\033[0m\]\[\033[38;5;1m\]\u@\h\[\033[0m\] [\w]\[\033[0m\] \[\033[38;5;117m\]"
+    PS1="\[\033[38;5;190m\][\$\[\033[38;5;28m\] \A] \[\033[0m\]\[\033[38;5;1m\]\u@\h\[\033[0m\]\n[\w]\[\033[0m\] \[\033[38;5;255m\]\n> "
 fi
 unset color_prompt force_color_prompt
 
@@ -114,18 +114,20 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# Node Version Manager
+. "$HOME"/.nvm/nvm.sh  # This loads nvm
+. "$HOME"/.nvm/bash_completion  # This loads nvm bash_completion
+
+# Rust Package Manager
 . "$HOME"/.cargo/env
 
+# Go related
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-export EDITOR=/usr/local/bin/vim
 
 # asdf
-. "$HOME"/.asdf/asdf.sh
-. "$HOME"/.asdf/completions/asdf.bash
+# . "$HOME"/.asdf/asdf.sh
+# . "$HOME"/.asdf/completions/asdf.bash
 
 # XDG_CONFIG_HOME:
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -133,9 +135,9 @@ export XDG_CONFIG_HOME="$HOME/.config"
 # Initial configs:
 export PATH=$HOME/.local/bin:$PATH
 
-# Set colorscheme with pywal
-wal -qnR
-# neofetch
+# Exporting flatpak libs:
+# FLATPAKPATH="/var/lib/flatpak"
+# export PATH="$FLATPAKPATH:$PATH"
 
 # Set user agent if custom getter script is installed
 if [[ -e "$HOME"/.local/bin/get_random_user_agent ]]; then
@@ -144,13 +146,49 @@ if [[ -e "$HOME"/.local/bin/get_random_user_agent ]]; then
 fi
 
 # Start set_random_wallpaper as job:
-if [[ -z "$(pgrep -la "set_random_wall")" ]]; then
-  setsid -f set_random_wallpaper
-fi
+# if [[ -z "$(pgrep -fla "set_random_wall")" ]]; then
+#   setsid -f set_random_wallpaper
+# fi
+
+# Improve this to use a proper sequence fallback:
+cat ~/.cache/wal/sequences
 
 # Set keyboard:
 setxkbmap -model pc105 -layout br -variant abnt2
 
-# Warning:
-echo -en "You need to rethink and discover what you REALLY need to do.\n"
+# Set vim as default editor (C-e-C-x to open interactively)
+export EDITOR=/usr/local/bin/vim
 
+# Warper
+function warp()
+{
+  test -d "$(xclip -o -sel w)" || \
+    { echo "Invalid warp" && return 1; }
+  cd "$(xclip -o -sel w)" || echo "Error while warping"
+  ls
+}
+
+# Search in current directory and open
+function orofi()
+{
+  xdg-open "$(find . -maxdepth 1 -iname "*" -printf '%P\n' \
+            | rofi -dmenu -p 'Search:')"
+}
+
+# Temporary PS1 color
+# function set_tmp_ps1
+# {
+#  local tmp_ps1_color
+#  "$HOME"/.local/bin/color_palette -a
+#  read -rp "Choose fg color:"  tmp_ps1_color
+#  PS1="${PS1}\[$(tput setaf "$tmp_ps1_color")\]"
+# }
+# Warning:
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+PATH="$HOME/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="$HOME/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="$HOME/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"$HOME/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"; export PERL_MM_OPT;
